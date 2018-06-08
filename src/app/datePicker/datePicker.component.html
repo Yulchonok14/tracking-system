@@ -1,0 +1,8 @@
+<div class="wrapper">
+  <button (click)="shiftWeek('left')"><i class="material-icons">keyboard_arrow_left</i></button>
+  <input type="text" value="{{curPeriod}}">
+  <button (click)="shiftWeek('right')"><i class="material-icons">keyboard_arrow_right</i></button>
+  <my-date-picker name="mydate" [options]="myDatePickerOptions"
+                  (dateChanged)="onDateChanged($event)"></my-date-picker>
+</div>
+

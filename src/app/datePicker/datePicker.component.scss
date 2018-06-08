@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+
+  button {
+    display: flex;
+  }
+
+  input {
+    padding-left: 10px;
+  }
+
+  my-date-picker {
+    width: 26px;
+    display: flex;
+  }
+}

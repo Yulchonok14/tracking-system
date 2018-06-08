@@ -25,3 +25,20 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+To start mongoDB:
+- create directory: D:\mongoDB\data;
+open cmd (admin):
+- C:\Program Files\MongoDB\Server\3.4\bin> mongod --dbpath=D:\mongoDB\data;
+- C:\Program Files\MongoDB\Server\3.4\bin> mongo;
+To start app:
+- directory-to-app> node server
+To build app:
+- directory-to-app> npm run build-sw
+
+Public Key:
+BDCqREY9G8__-ZRTC5zWAO5ox73t9yUm_l0rR-kXKm0ZBHtB5vjjHhP90dxjTUuzbMUOoocE2tBPDDdbkOJwnO0
+
+Private Key:
+h7hheK7ufvrG_MOaF6z-vIa56jcOxOa6xlhRAWniVoc
