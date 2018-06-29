@@ -21,10 +21,7 @@ export class EmployeeService {
   }
 
   addEmployee() {
-    const newEmployee = {
-      'employeeId' : '2',
-      'employeeName': 'Yury'
-    };
+    const newEmployee = {'employeeId' : '3','employeeName': 'Mary'};
     return this._http.post('/employee', newEmployee).subscribe(res => {console.log('result: ', res); });
   }
 

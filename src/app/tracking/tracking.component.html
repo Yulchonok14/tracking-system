@@ -1,0 +1,40 @@
+<div class="main">
+  <div class="head-table">
+    <select class="project-list" [ngModel]="curProjId" (change)="setCurrentProject($event.target.value)">
+      <option *ngFor="let project of projects" [value]="project.projectId">{{project.name}}</option>
+    </select>
+    <select class="user-list" (change)="setCurrentUser($event.target.value)" [ngModel]="curUser">
+      <option *ngFor="let employee of employees" [value]="employee.employeeName">{{employee.employeeName}}</option>
+    </select>
+    <div class="weekdays-header">
+      <ul>
+        <li class="dateName" *ngFor="let day of week"><b>{{day.weekDay}}</b>{{day.day}}&nbsp;{{day.month}}</li>
+      </ul>
+    </div>
+  </div>
+  <app-date-picker (datePeriodChanged)="onDatePeriodChanged($event)"></app-date-picker>
+  <div class="report-table">
+    <div class="report-row" *ngFor="let report of weekedReports">
+      <input class="taskName" type="text" (input)="onNameChange($event, report.name)" value="{{report.name}}">
+      <div class="weekdays-section">
+        <div class="weekdays">
+          <input class="dayName" (click)="$event.target.select()" (input)="onTimeChange($event.target, report.name)"
+                 *ngFor="let dayReport of report.dayReport; let i = index" [attr.data-index]="i"
+                 value="{{dayReport.hour}}">
+        </div>
+        <span class="total">{{report.total}}</span>
+        <button (click)="deleteTask($event)">x</button>
+      </div>
+    </div>
+  </div>
+  <div class="footer-table">
+    <button class="newLine"(click)="newTask()">+ New Row</button>
+    <div class="weekdays-footer">
+      <ul>
+        <li class="totalOnDay" *ngFor="let sum of dayTimeArr">{{sum}}</li>
+      </ul>
+      <span class="total">{{totalsPerWeek}}</span>
+      <div></div>
+    </div>
+  </div>
+</div>

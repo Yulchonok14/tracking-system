@@ -17,7 +17,9 @@ export class DatePickerComponent {
     showInputField: false
   };
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(){
     this.onDateChanged({jsdate: moment()});
   }
 

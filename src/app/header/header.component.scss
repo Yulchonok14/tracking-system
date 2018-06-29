@@ -1,0 +1,16 @@
+.head-line {
+  height: 6vh;
+  background-color: #ff7422;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 10vh;
+
+  & > * {
+    margin: 2vh;
+  }
+
+  nav > a {
+    margin: 2vh;
+  }
+}

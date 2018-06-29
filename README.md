@@ -33,9 +33,17 @@ open cmd (admin):
 - C:\Program Files\MongoDB\Server\3.4\bin> mongod --dbpath=D:\mongoDB\data;
 - C:\Program Files\MongoDB\Server\3.4\bin> mongo;
 To start app:
-- directory-to-app> node server
+- directory-to-app> node server.js
 To build app:
 - directory-to-app> npm run build-sw
+
+working with mongoDB:
+use tracking_system
+db.createCollection("projects");
+db.createCollection("employees");
+db.createCollection("reports");
+db.employees.insert([{'employeeId': '1', 'employeeName': 'Yury'}, {'employeeId': '2', 'employeeName': 'Yuliya'}])
+db.projects.insert([{'projectId': '1', 'name': 'NewProject1'}, {'projectId': '2', 'name': 'NewProject2'}])
 
 Public Key:
 BDCqREY9G8__-ZRTC5zWAO5ox73t9yUm_l0rR-kXKm0ZBHtB5vjjHhP90dxjTUuzbMUOoocE2tBPDDdbkOJwnO0

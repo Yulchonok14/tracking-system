@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 
@@ -24,16 +24,18 @@ export class ReportService {
     return '_' + Math.random().toString(36).substr(2, 9);
   }
 
-  addReport(employeeName: string, task: string, projectId: string, date: string, hour: string) {
+  addReport(employeeName: string, task: string, projectId: string, date: string, hour: string): Observable<any> {
+    const reportId = this.generateId();
     const newReport = {
-      'reportId' : this.generateId(),
+      'reportId' : reportId,
       'employeeName': employeeName,
       'projectId': projectId,
       'task': task,
       'hour': hour || '',
       'date': date || ''
     };
-    return this._http.post('/report', newReport).subscribe(res => {console.log('result: ', res); });
+
+    return this._http.post('/report', newReport, {params: new HttpParams().set('reportId', reportId), observe: "response"});//.subscribe(res => {console.log('result: ', res); });
   }
 
   updateReport(reportId: string, date: string, employeeName: string, task: string, hour: string, projectId: string) {
@@ -46,9 +48,9 @@ export class ReportService {
         'date': date
     };
     console.log('updatedReport: ', updatedReport);
-    return this._http.put('/report', updatedReport).subscribe(res => {
+    return this._http.put('/report', updatedReport, {params: new HttpParams().set('reportId', reportId), observe: "response"});/*.subscribe(res => {
       console.log('result: ', res);
-    });
+    });*/
   }
 
   deleteReportById(reportId) {

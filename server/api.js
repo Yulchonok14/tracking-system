@@ -128,6 +128,7 @@ router.delete('/report', function(req, res) {
 
 router.get('/employees', function(req, res) {
   connection(function(db) {
+    console.log('db: ', db);
     db.collection('employees').find().toArray()
       .then(function(reports) {
         response.data = reports;
@@ -138,6 +139,7 @@ router.get('/employees', function(req, res) {
 });
 
 router.post('/employee', function(req, res) {
+  console.log('in employee');
   connection(function(db) {
     db.collection('employees').insertOne(req.body)
       .then(function(report) {
